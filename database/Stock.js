@@ -1,8 +1,9 @@
 const mongoose = require('mongoose');
 const db = require('./index.js');
+
 mongoose.Promise = global.Promise;
 
-const stockSchema = new mongoose.Schema ({
+const stockSchema = new mongoose.Schema({
   symbol: String,
   equity: Number,
   cost: Number,
@@ -11,7 +12,8 @@ const stockSchema = new mongoose.Schema ({
   PD: Number,
   CEO: String,
   employees: Number,
-  HQ: String,
+  HQc: String,
+  HQs: String,
   founded: Number,
   MC: Number,
   PER: Number,
@@ -23,15 +25,9 @@ const stockSchema = new mongoose.Schema ({
   volume: Number,
   yearHigh: Number,
   yearLow: Number,
-  tag1: String,
-  tag2: String,
-  tag3: String,
-  tag4: String,
-  tag5: String,
-  tag6: String,
-  tag7: String
+  tags: Array,
 });
 
-const Stock = mongoose.model('stock',stockSchema);
+const Stock = mongoose.model('stock', stockSchema);
 
 module.exports = Stock;
