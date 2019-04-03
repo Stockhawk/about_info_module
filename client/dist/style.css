@@ -1,3 +1,147 @@
 body {
   font-family: 'PT Sans', Verdana, Geneva, sans-serif;
 }
+
+#userInfo1Left {
+  font-size: 13px;
+  max-width: 118px;
+  max-height: 36px;
+
+}
+
+#userInfo1Right {
+  font-size: 13px;
+  width: 161px;
+  height: 36px;
+}
+
+#userEquity {
+  width: 285px;
+  height: 19px;
+  font-size: 13px;
+}
+
+#userEquityNum {
+  width: 285px;
+  height: 30px;
+  font-size: 26px;
+  font-weight: bold;
+}
+
+.userInfo1 {
+  border-style: solid;
+  border-width: thin;
+  width: 333px;
+  height: 217px;
+}
+
+#userInfo2Left {
+  border-style: hidden;
+  font-size: 13px;
+  width: 210px;
+  height: 36px;
+
+}
+
+#userInfo2Right {
+  border-style: hidden;
+  font-size: 13px;
+  width: 68px;
+  height: 36px;
+}
+
+#userAv {
+  width: 285px;
+  height: 19px;
+  font-size: 13px;
+}
+
+#userAvNum {
+  width: 285px;
+  height: 30px;
+  font-size: 26px;
+  font-weight: bold;
+}
+
+.userInfo2 {
+  border-style: solid;
+  border-width: thin;
+  width: 333px;
+  height: 217px;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(4, 106.25px);
+  grid-gap: 15px;
+}
+
+.grid-container-app {
+  display: grid;
+  grid-template-columns: repeat(2, 340px);
+  grid-gap: 15px;
+}
+
+.grid-item {
+  font-size: 13px;
+}
+
+#aboutName {
+  font-weight: bold;
+}
+
+#aboutMain {
+  font-size: 26px;
+}
+
+#aboutMin {
+  font-size: 13px;
+  position: absolute;
+  left: 620px;
+  bottom: 435px;
+}
+
+.aboutMain {
+  width: 678px;
+  height: 47px;
+  border-bottom: 1px solid rgb(177, 177, 177)
+}
+
+.description {
+  max-width: 570px;
+  height: 66px;
+}
+
+.about {
+  max-width: 678px;
+  max-height: 279px;
+}
+
+#collections {
+  font-size: 26px;
+  width: 678px;
+  height: 47px;
+  border-bottom: 1px solid rgb(177, 177, 177)
+}
+
+#tags {
+  font-size: 13px;
+  box-sizing: border-box;
+  display:inline-block;
+  padding: 5px;
+  background-color: #182b27;
+  border-radius: 16px;
+  color: #21ce99;
+  
+}
+
+#tags2 {
+  font-size: 13px;
+  box-sizing: border-box;
+  display:inline-block;
+  padding: 5px;
+  background-color: #182b27;
+  border-radius: 16px;
+  color: #21ce99;
+  
+}

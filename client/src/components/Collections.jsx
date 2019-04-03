@@ -1,21 +1,41 @@
+import React from 'react';
+
 class Collections extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
 
-    }
+    };
   }
+
   render() {
-    return(
+    return (
       <div>
-        <div>
-          <h4>Collections</h4>
+        <div id="collections">
+          Collections
         </div>
+        <br></br>
         <div>
-          <span><button>Female CEOs</button><button>100 Most Popular</button><button>Manufacturing</button><button>Electronics</button></span>
+          <div>
+            <div id="tags">Female CEOs</div>
+            &nbsp;
+            <div id="tags">100 Most Popular</div>
+            &nbsp;
+            <div id="tags">Manufacturing</div>
+            &nbsp;
+            <div id="tags">Electronics</div>
+          </div>
+          <br></br>
+          <div>
+            <div id="tags2">Video Games</div>
+            &nbsp;
+            <div id="tags2">Semiconductors</div>
+            &nbsp;
+            <div id="tags2">Technology</div>
+          </div>
         </div>
       </div>
-    )
+    );
   }
 }
 
