@@ -4,14 +4,18 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "test": "jest",
+    "test": "jest --coverage || true",
     "start": "nodemon server/index.js",
     "react-dev": "webpack -d --watch",
     "db:setup": "node database/seed.js"
   },
   "jest": {
-    "snapshotSerializers": ["enzyme-to-json/serializer"],
-    "setupFiles": ["./client/src/setupTests.js"]
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ],
+    "setupFiles": [
+      "./client/src/setupTests.js"
+    ]
   },
   "author": "WILL WONG",
   "license": "ISC",
@@ -29,7 +33,7 @@
     "eslint-plugin-import": "^2.16.0",
     "eslint-plugin-jsx-a11y": "^6.2.1",
     "eslint-plugin-react": "^7.12.4",
-    "jest": "^24.6.0",
+    "jest": "^24.7.1",
     "webpack": "^4.29.6",
     "webpack-cli": "^3.3.0"
   },
