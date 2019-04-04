@@ -27,7 +27,6 @@ class App extends React.Component {
     })
       .then(response => response.json())
       .then((parsedJSON) => {
-        console.log('data', parsedJSON);
         // const currStockInfo = [... this.state.stockInfo, parsedJSON];
         this.setState({
           stockInfo: parsedJSON,
@@ -42,9 +41,14 @@ class App extends React.Component {
           <div id="app-grid-item"><UserInfo1 stockInfo={this.state.stockInfo} /></div>
           <div id="app-grid-item"><UserInfo2 stockInfo={this.state.stockInfo} /></div>
         </div>
+        <br></br>
+        <br></br>
+        <br></br>
         <div>
           <About stockInfo={this.state.stockInfo} />
         </div>
+        <br></br>
+        <br></br>
         <div>
           <Collections stockInfo={this.state.stockInfo} />
         </div>
