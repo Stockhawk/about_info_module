@@ -1,39 +1,59 @@
 import React from 'react';
+import Hover from './Hover.jsx'
 
 class Collections extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      hover: false
+    };
+    this.handleMouseOver = this.handleMouseOver.bind(this);
+  }
 
+  handleMouseOver() {
+    this.setState(this.toggleHoverState)
+  }
+
+  toggleHoverState() {
+    return {
+      hover: !this.state.hover,
     };
   }
 
   render() {
     return (
-      <div>
+      <div className="collections">
         <div id="collections">
           Collections
         </div>
         <br></br>
-        <div>
-          <div>
-            <div id="tags">Female CEOs</div>
-            &nbsp;
-            <div id="tags">100 Most Popular</div>
-            &nbsp;
-            <div id="tags">Manufacturing</div>
-            &nbsp;
-            <div id="tags">Electronics</div>
+        {this.props.stockInfo.map(stock => (
+          <div key={stock.symbol}>
+            <div>
+              {this.state.hover && <Hover mouseOver={this.handleMouseOver} />}
+              <div
+                className="tags"
+                onMouseEnter={this.handleMouseOver}
+                // onMouseLeave={this.handleMouseOver}
+              >
+                {stock.tags[0]}
+              </div>
+              &nbsp;
+              <div className="tags">{stock.tags[1]}</div>
+              &nbsp;
+              <div className="tags">{stock.tags[2]}</div>
+              &nbsp;
+              <div className="tags">{stock.tags[3]}</div>
+            </div>
+            <div>
+              <div id="tags2">{stock.tags[4]}</div>
+              &nbsp;
+              <div id="tags2">{stock.tags[5]}</div>
+              &nbsp;
+              <div id="tags2">{stock.tags[6]}</div>
+            </div>
           </div>
-          <br></br>
-          <div>
-            <div id="tags2">Video Games</div>
-            &nbsp;
-            <div id="tags2">Semiconductors</div>
-            &nbsp;
-            <div id="tags2">Technology</div>
-          </div>
-        </div>
+        ))}
       </div>
     );
   }
