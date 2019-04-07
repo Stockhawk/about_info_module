@@ -3,12 +3,15 @@ import React from 'react';
 const UserInfo2 = (props) => {
   return (
     <div>
-      {props.stockInfo.map((stock, key) => {
+      {props.stockInfo.map((stock) => {
         return (
-          <table className="userInfo2" key={key}>
+          <table className="userInfo2" key={stock.symbol}>
             <thead>
               <div id="userAv">Your Average Cost</div>
-              <div id="userAvNum">${stock.AV}</div>
+              <div id="userAvNum">
+              $
+                {stock.AV}
+              </div>
             </thead>
             <tbody>
               <tr>
@@ -19,7 +22,10 @@ const UserInfo2 = (props) => {
             <tbody>
               <tr>
                 <td id="userInfo2Left">Portfolio Diversity</td>
-                <td id="userInfo2Right">{stock.PD}%</td>
+                <td id="userInfo2Right">
+                  {stock.PD}
+                %
+                </td>
               </tr>
             </tbody>
             <tbody>

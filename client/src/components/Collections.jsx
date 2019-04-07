@@ -1,5 +1,6 @@
 import React from 'react';
-import Hover from './Hover.jsx'
+import { Popup } from 'semantic-ui-react';
+import Hover from './Hover.jsx';
 
 class Collections extends React.Component {
   constructor(props) {
@@ -26,22 +27,31 @@ class Collections extends React.Component {
         <div id="collections">
           Collections
         </div>
+        {console.log('prop tags', this.props.tag)}
         <br></br>
         {this.props.stockInfo.map(stock => (
           <div key={stock.symbol}>
             <div>
-              {this.state.hover && <Hover mouseOver={this.handleMouseOver} />}
-              <div
-                className="tags"
-                onMouseEnter={this.handleMouseOver}
-                // onMouseLeave={this.handleMouseOver}
-              >
-                {stock.tags[0]}
-              </div>
+              <Popup
+                trigger={<div className="tags">{stock.tags[0]}</div>}
+                content={<Hover tags={this.props.tag} />}
+                on="hover"
+                position="top center"
+              />
               &nbsp;
-              <div className="tags">{stock.tags[1]}</div>
+              <Popup
+                trigger={<div className="tags">{stock.tags[1]}</div>}
+                content={<Hover />}
+                hoverable
+                position="top center"
+              />
               &nbsp;
-              <div className="tags">{stock.tags[2]}</div>
+              <Popup
+                trigger={<div className="tags">{stock.tags[2]}</div>}
+                content={<Hover />}
+                on="click"
+                position="top center"
+              />
               &nbsp;
               <div className="tags">{stock.tags[3]}</div>
             </div>

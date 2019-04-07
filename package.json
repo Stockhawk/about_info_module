@@ -7,7 +7,8 @@
     "test": "jest --coverage || true",
     "start": "nodemon server/index.js",
     "react-dev": "webpack -d --watch",
-    "db:setup": "node database/seed.js"
+    "db:setup": "node database/seed.js",
+    "db:setup2": "node database/seed2.js"
   },
   "jest": {
     "snapshotSerializers": [
@@ -47,6 +48,7 @@
     "react": "^16.8.4",
     "react-dom": "^16.8.5",
     "react-router": "^5.0.0",
-    "reactdom": "^2.0.0"
+    "reactdom": "^2.0.0",
+    "semantic-ui-react": "^0.86.0"
   }
 }

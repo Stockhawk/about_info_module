@@ -11,11 +11,14 @@ class App extends React.Component {
     super(props);
     this.state = {
       stockInfo: [],
+      tags: [],
     };
   }
 
   componentDidMount() {
     this.getStockInfo();
+    // const tagsId = this.state.stockInfo.map((stock) => { return stock.tags; });
+    // console.log('tagsId', tagsId);
   }
 
   getStockInfo() {
@@ -27,10 +30,18 @@ class App extends React.Component {
     })
       .then(response => response.json())
       .then((parsedJSON) => {
-        // const currStockInfo = [... this.state.stockInfo, parsedJSON];
         this.setState({
           stockInfo: parsedJSON,
         });
+        return fetch(`/stocks/tags/${parsedJSON[0].tags}`, {
+          method: 'GET',
+        })
+          .then(response => response.json())
+          .then((parsedJSON2) => {
+            this.setState({
+              tags: parsedJSON2
+            });
+          });
       });
   }
 
@@ -38,6 +49,7 @@ class App extends React.Component {
     return (
       <div>
         <div className="grid-container-app">
+        {console.log('state tags', this.state.tags)}
           <div id="app-grid-item"><UserInfo1 stockInfo={this.state.stockInfo} /></div>
           <div id="app-grid-item"><UserInfo2 stockInfo={this.state.stockInfo} /></div>
         </div>
@@ -50,7 +62,7 @@ class App extends React.Component {
         <br></br>
         <br></br>
         <div>
-          <Collections stockInfo={this.state.stockInfo} />
+          <Collections stockInfo={this.state.stockInfo} tag={this.state.tags}/>
         </div>
       </div>
     );

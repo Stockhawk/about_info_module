@@ -19,13 +19,26 @@ const UserInfo1 = (props) => {
             <tbody>
               <tr>
                 <td id="userInfo1Left">Today's Return</td>
-                <td id="userInfo1Right">${stock.TR}</td>
+                <td id="userInfo1Right">
+               +$
+                  {stock.TR}
+                  (
+                  {((stock.TR / stock.equity) * 100).toFixed(2)}
+                  %
+                  )
+                </td>
               </tr>
             </tbody>
             <tbody>
               <tr>
                 <td id="userInfo1Left">Total Return</td>
-                <td id="userInfo1Right">$</td>
+                <td id="userInfo1Right">
+                + $
+                  {(stock.equity - stock.cost).toFixed(2)} 
+                  &nbsp;(
+                  {(((stock.equity - stock.cost).toFixed(2) / stock.cost) * 100).toFixed(2)}
+                %)
+                </td>
               </tr>
             </tbody>
           </table>
