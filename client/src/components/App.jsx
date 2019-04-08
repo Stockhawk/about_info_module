@@ -1,5 +1,6 @@
 import React from 'react';
 import { Router, Route, Swotch} from 'react-router';
+import CssModules from 'react-css-modules';
 import UserInfo1 from './UserInfo1.jsx';
 import UserInfo2 from './UserInfo2.jsx';
 import About from './About.jsx';
@@ -25,7 +26,7 @@ class App extends React.Component {
     // const url = window.location.pathname;
     // const splitUrl = url.split('/');
     // const symbolId = splitUrl[splitUrl.length - 2];
-    fetch(`/stocks/AAPL`, {
+    fetch(`/stocks/AMD`, {
       method: 'GET',
     })
       .then(response => response.json())
@@ -49,7 +50,6 @@ class App extends React.Component {
     return (
       <div>
         <div className="grid-container-app">
-        {console.log('state tags', this.state.tags)}
           <div id="app-grid-item"><UserInfo1 stockInfo={this.state.stockInfo} /></div>
           <div id="app-grid-item"><UserInfo2 stockInfo={this.state.stockInfo} /></div>
         </div>

@@ -15,19 +15,9 @@ app.listen(port, () => console.log('APP IS LISTENING'));
 app.use('/stocks/', express.static(path.join(__dirname, '../client/dist')));
 
 app.get('/stocks/:symbol', (req, res) => {
-  console.log(req.params)
-  // Stock.find(req.params, (err, data) => {
-  //   if (err) {
-  //     throw err;
-  //   } else {
-  //     console.log('data', data)
-  //     res.send(data);
-  //   }
-  // });
   findStock(req.params).then(data => res.send(data));
 });
 
 app.get('/stocks/tags/:tag', (req, res) => {
-  console.log('body', req.params);
   findTag(req.params).then(data => res.send(data));
 });

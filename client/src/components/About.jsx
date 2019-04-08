@@ -26,9 +26,9 @@ class About extends React.Component {
   render() {
     return (
       <div className="about">
-        {this.props.stockInfo.map((stock, key) => {
+        {this.props.stockInfo.map((stock) => {
           return (
-            <div key={key}>
+            <div key={stock.symbol}>
               <div className="aboutMain">
                 <span id="aboutMain">About</span>
                 <span id="aboutMin" onClick={this.onShowMoreClick}>{this.state.showClicked ? 'Show Less' : 'Show More'}</span>
@@ -51,7 +51,7 @@ class About extends React.Component {
                   <div id="aboutName">Employees</div>
                   <div id="aboutItem">{stock.employees}</div>
                 </div>
-                <div className="grid-item">
+                <div className="grid-item" style={{ fontSize: 13 }}>
                   <div id="aboutName">Headquarters</div>
                   <div id="aboutItem">{stock.HQc}, {stock.HQs}</div>
                 </div>

@@ -1,24 +1,45 @@
 import React from 'react';
-import { Popup } from 'semantic-ui-react';
+import { Popup, TransitionablePortal } from 'semantic-ui-react';
 import Hover from './Hover.jsx';
 
 class Collections extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      hover: false
+      hover: false,
+      hoveredTag: [],
     };
     this.handleMouseOver = this.handleMouseOver.bind(this);
+    this.onHoverGetValue = this.onHoverGetValue.bind(this);
   }
 
-  handleMouseOver() {
-    this.setState(this.toggleHoverState)
+
+  onHoverGetValue(e) {
+    const name = e.target.innerHTML;
+    // console.log('name', name);
+
+    let tagHovered;
+    this.props.tag.forEach((tag) => {
+      // console.log('tag', tag.tag)
+      if (tag.tag === name) {
+        console.log(tag)
+        tagHovered = tag;
+        return;
+      }
+    });
+    this.setState({
+      hoveredTag: tagHovered,
+    });
   }
 
   toggleHoverState() {
     return {
       hover: !this.state.hover,
     };
+  }
+
+  handleMouseOver() {
+    this.setState(this.toggleHoverState);
   }
 
   render() {
@@ -33,34 +54,54 @@ class Collections extends React.Component {
           <div key={stock.symbol}>
             <div>
               <Popup
-                trigger={<div className="tags">{stock.tags[0]}</div>}
-                content={<Hover tags={this.props.tag} />}
-                on="hover"
-                position="top center"
-              />
-              &nbsp;
-              <Popup
-                trigger={<div className="tags">{stock.tags[1]}</div>}
-                content={<Hover />}
+                trigger={<div className="tags" onMouseEnter={e => this.onHoverGetValue(e)}>{stock.tags[0]}</div>}
+                content={<Hover tags={this.state.hoveredTag} />}
                 hoverable
                 position="top center"
               />
               &nbsp;
               <Popup
-                trigger={<div className="tags">{stock.tags[2]}</div>}
-                content={<Hover />}
-                on="click"
+                trigger={<div className="tags" onMouseEnter={e => this.onHoverGetValue(e)}>{stock.tags[1]}</div>}
+                content={<Hover tags={this.state.hoveredTag} />}
+                hoverable
                 position="top center"
               />
               &nbsp;
-              <div className="tags">{stock.tags[3]}</div>
+              <Popup
+                trigger={<div className="tags" onMouseEnter={e => this.onHoverGetValue(e)}>{stock.tags[2]}</div>}
+                content={<Hover tags={this.state.hoveredTag} />}
+                hoverable
+                position="top center"
+              />
+              &nbsp;
+              <Popup
+                trigger={<div className="tags" onMouseEnter={e => this.onHoverGetValue(e)}>{stock.tags[3]}</div>}
+                content={<Hover tags={this.state.hoveredTag} />}
+                hoverable
+                position="top center"
+              />
             </div>
             <div>
-              <div id="tags2">{stock.tags[4]}</div>
+              <Popup
+                trigger={<div id="tags2" onMouseEnter={e => this.onHoverGetValue(e)}>{stock.tags[4]}</div>}
+                content={<Hover tags={this.state.hoveredTag} />}
+                hoverable
+                position="top center"
+              />
               &nbsp;
-              <div id="tags2">{stock.tags[5]}</div>
+              <Popup
+                trigger={<div id="tags2" onMouseEnter={e => this.onHoverGetValue(e)}>{stock.tags[5]}</div>}
+                content={<Hover tags={this.state.hoveredTag} />}
+                hoverable
+                position="top center"
+              />
               &nbsp;
-              <div id="tags2">{stock.tags[6]}</div>
+              <Popup
+                trigger={<div id="tags2" onMouseEnter={e => this.onHoverGetValue(e)}>{stock.tags[6]}</div>}
+                content={<Hover tags={this.state.hoveredTag} />}
+                hoverable
+                position="top center"
+              />
             </div>
           </div>
         ))}

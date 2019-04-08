@@ -6,7 +6,7 @@ class Hover extends React.Component {
     super(props)
     this.state = {
       hover: true
-    }
+    };
     this.onMouseLeave = this.onMouseLeave.bind(this)
   }
 
@@ -28,46 +28,46 @@ class Hover extends React.Component {
   render() {
     return (
       <div>
-        {this.state.hover ?
-          <div>
-            {console.log('hover tags', this.props.tags)}
-            <div className="hover" onMouseLeave={this.onMouseLeave}>
-              <table>
-                <caption id="hover-caption">
-                  Preview of the list:
-                </caption>
-                <tr id="hover-th">
-                  <th>Company</th>
-                  <th>Price</th>
-                </tr>
-                <tr id="hover-table">
-                  <td>AAPL</td>
-                  <td>$139.45</td>
-                </tr>
-                <tr id="hover-table">
-                  <td>MSFT</td>
-                  <td>$138.2</td>
-                </tr>
-                <tr id="hover-table">
-                  <td>DIS</td>
-                  <td>$119.02</td>
-                </tr>
-                <tr id="hover-table">
-                  <td>FB</td>
-                  <td>$109.23</td>
-                </tr>
-                <tr id="hover-table">
-                  <td>EQH</td>
-                  <td>$17.93</td>
-                </tr>
-              </table>
-              <div id="warning">
-                *Click on the tag to see the full list!
+        {console.log('hover props', this.props.tags)}
+          {this.state.hover ?
+            <div>
+              <div className="hover" onMouseLeave={this.onMouseLeave}>
+                <table>
+                  <caption id="hover-caption">
+                    Preview of the list:
+                  </caption>
+                  <tr id="hover-th">
+                    <th>Company</th>
+                    <th>Price</th>
+                  </tr>
+                  <tr id="hover-table">
+                    <td>{this.props.tags.symbols[0]}</td>
+                    <td>${this.props.tags.price[0]}</td>
+                  </tr>
+                  <tr id="hover-table">
+                    <td>{this.props.tags.symbols[1]}</td>
+                    <td>${this.props.tags.price[1]}</td>
+                  </tr>
+                  <tr id="hover-table">
+                    <td>{this.props.tags.symbols[2]}</td>
+                    <td>${this.props.tags.price[2]}</td>
+                  </tr>
+                  <tr id="hover-table">
+                    <td>{this.props.tags.symbols[3]}</td>
+                    <td>${this.props.tags.price[3]}</td>
+                  </tr>
+                  <tr id="hover-table">
+                    <td>{this.props.tags.symbols[4]}</td>
+                    <td>${this.props.tags.price[4]}</td>
+                  </tr>
+                </table>
+                <div id="warning">
+                  *Click on the tag to see the full list!
+                </div>
               </div>
+              <div className="arrow-down"></div>
             </div>
-            <div class="arrow-down"></div>
-          </div>
-          : null }
+        : null }
       </div>
     );
   }

@@ -19,13 +19,13 @@ for (let i = 0; i < collections.length; i++) {
   const symbolsArr = [];
   const pricesArr = [];
   const newSymbols = symbols.slice();
-  for (let j = 0; j < 7; j++) {
+  for (let j = 0; j < 5; j++) {
     const index = Math.floor(Math.random() * newSymbols.length);
     symbolsArr.push(newSymbols[index]);
     newSymbols.splice(index, 1);
   }
-  for (let k = 0; k < 7; k++) {
-    const randomPrice = faker.finance.amount(80, 250, 2);
+  for (let k = 0; k < 5; k++) {
+    const randomPrice = faker.finance.amount(80, 180, 2);
     pricesArr.push(randomPrice);
   }
 

@@ -7,6 +7,12 @@ const UserInfo2 = (props) => {
         return (
           <table className="userInfo2" key={stock.symbol}>
             <thead>
+              {/* <tr>
+                <td id="userAv">Your Average Cost</td>
+              </tr>
+              <tr>
+                <td id="userAvNum">${stock.AV}</td>
+              </tr> */}
               <div id="userAv">Your Average Cost</div>
               <div id="userAvNum">
               $

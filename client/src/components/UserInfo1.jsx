@@ -3,12 +3,18 @@ import React from 'react';
 const UserInfo1 = (props) => {
   return (
     <div>
-      {props.stockInfo.map((stock, key) => {
+      {props.stockInfo.map((stock) => {
         return (
-          <table className="userInfo1" key={key}>
+          <table className="userInfo1" key={stock.symbol}>
             <thead>
+              {/* <tr>
+                <td id="userEquity">Your Equity</td>
+              </tr>
+              <tr>
+                <td id="userEquityNum">${(stock.equity).toLocaleString()}</td>
+              </tr> */}
               <div id="userEquity">Your Equity</div>
-              <div id="userEquityNum">${stock.equity}</div>
+              <div id="userEquityNum">${(stock.equity).toLocaleString()}</div>
             </thead>
             <tbody>
               <tr>
@@ -21,7 +27,7 @@ const UserInfo1 = (props) => {
                 <td id="userInfo1Left">Today's Return</td>
                 <td id="userInfo1Right">
                +$
-                  {stock.TR}
+                  {stock.TR.toLocaleString()}
                   (
                   {((stock.TR / stock.equity) * 100).toFixed(2)}
                   %
@@ -33,8 +39,8 @@ const UserInfo1 = (props) => {
               <tr>
                 <td id="userInfo1Left">Total Return</td>
                 <td id="userInfo1Right">
-                + $
-                  {(stock.equity - stock.cost).toFixed(2)} 
+                 $
+                  {(stock.equity - stock.cost).toFixed(2)}
                   &nbsp;(
                   {(((stock.equity - stock.cost).toFixed(2) / stock.cost) * 100).toFixed(2)}
                 %)
