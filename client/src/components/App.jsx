@@ -27,7 +27,7 @@ class App extends React.Component {
     const splitUrl = url.split('/');
     const symbolId = splitUrl[splitUrl.length - 2];
     console.log('symbol', symbolId)
-    fetch(`/api/stocks/${symbolId}`, {
+    fetch(`/api/quotes/${symbolId}`, {
       method: 'GET',
     })
       .then(response => response.json())
