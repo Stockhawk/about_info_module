@@ -42,16 +42,17 @@ class About extends React.Component {
                   </p>
                 </section>
               </div>
+              <br></br>
               <div className="grid-container">
                 <div className="grid-item">
                   <div id="aboutName">CEO</div>
-                  <div id="aboutItem">{stock.CEO}</div>
+                  <div id="aboutCEO">{stock.CEO}</div>
                 </div>
                 <div className="grid-item">
                   <div id="aboutName">Employees</div>
-                  <div id="aboutItem">{stock.employees}</div>
+                  <div id="aboutItem">{(stock.employees).toLocaleString()}</div>
                 </div>
-                <div className="grid-item" style={{ fontSize: 13 }}>
+                <div className="grid-item">
                   <div id="aboutName">Headquarters</div>
                   <div id="aboutItem">{stock.HQc}, {stock.HQs}</div>
                 </div>

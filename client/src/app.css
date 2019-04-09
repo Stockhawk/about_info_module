@@ -7,27 +7,22 @@ form {
 }
 #userInfo1Left {
   font-size: 13px;
-  max-width: 114px;
-  max-height: 36px;
-  padding-left: 20px;
-  padding-bottom: 26px;
+  width: 41%;
+  height: 36px;
 }
 
 #userInfo1Right {
   font-size: 13px;
-  max-width: 161px;
-  max-height: 36px;
+  width: 161px;
+  height: 36px;
   text-align: right;
-  padding-right: 21.5px;
-  padding-bottom: 26px;
 }
 
 #userEquity {
   width: 285px;
   height: 19px;
   font-size: 13px;
-  padding-left: 20px;
-  padding-top: 25px;
+  text-align: start;
 }
 
 #userEquityNum {
@@ -35,7 +30,6 @@ form {
   height: 30px;
   font-size: 26px;
   font-weight: bold;
-  padding-left: 20px;
 }
 
 .userInfo1 {
@@ -46,33 +40,29 @@ form {
   height: 217px;
   border-radius: 2px;
   table-layout: fixed;
+  padding: 23px
 }
 
 #userInfo2Left {
   border-style: hidden;
   font-size: 13px;
-  max-width: 210px;
-  max-height: 36px;
-  padding-left: 20px;
-  padding-bottom: 26px;
+  width: 210px;
+  height: 36px;
 }
 
 #userInfo2Right {
   border-style: hidden;
   font-size: 13px;
-  max-width: 68px;
-  max-height: 36px;
+  width: 68px;
+  height: 36px;
   text-align: right;
-  padding-right: 21.5px;
-  padding-bottom: 26px;
 }
 
 #userAv {
   width: 285px;
   height: 19px;
   font-size: 13px;
-  padding-left: 20px;
-  padding-top: 25px;
+  text-align: start;
 }
 
 #userAvNum {
@@ -80,7 +70,6 @@ form {
   height: 30px;
   font-size: 26px;
   font-weight: bold;
-  padding-left: 20px;
 }
 
 .userInfo2 {
@@ -91,12 +80,15 @@ form {
   height: 217px;
   border-radius: 2px;
   table-layout: fixed;
+  padding: 23px;
 }
 
 .grid-container {
   display: grid;
   grid-template-columns: repeat(4, 115.25px);
-  grid-gap: 15px;
+  width: 678px;
+  max-height: 218px;
+  grid-gap: 55px;
   grid-row-gap: 25px;
 }
 
@@ -104,8 +96,8 @@ form {
   display: grid;
   grid-template-columns: repeat(2, 340px);
   grid-gap: 2px;
-  /* max-width: 678px;
-  max-height: 229px; */
+  width: 678px;
+  height: 229px;
 } 
 
 .grid-item {
@@ -140,6 +132,10 @@ form {
   width: 678px;
   height: 47px;
   border-bottom: 1px solid rgb(177, 177, 177)
+}
+
+#aboutCEO {
+  color: #21ce99;  
 }
 
 .description {

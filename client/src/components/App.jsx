@@ -50,7 +50,7 @@ class App extends React.Component {
     return (
       <div>
         <div className="grid-container-app">
-          <div id="app-grid-item"><UserInfo1 stockInfo={this.state.stockInfo} /></div>
+          <UserInfo1 stockInfo={this.state.stockInfo} />
           <div id="app-grid-item"><UserInfo2 stockInfo={this.state.stockInfo} /></div>
         </div>
         <br></br>

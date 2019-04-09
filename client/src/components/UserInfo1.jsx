@@ -13,13 +13,13 @@ const UserInfo1 = (props) => {
               <tr>
                 <td id="userEquityNum">${(stock.equity).toLocaleString()}</td>
               </tr> */}
-              <div id="userEquity">Your Equity</div>
+              <caption id="userEquity">Your Equity</caption>
               <div id="userEquityNum">${(stock.equity).toLocaleString()}</div>
             </thead>
             <tbody>
               <tr>
                 <td id="userInfo1Left">Cost</td>
-                <td id="userInfo1Right">${stock.cost}</td>
+                <td id="userInfo1Right">${(stock.cost).toLocaleString()}</td>
               </tr>
             </tbody>
             <tbody>

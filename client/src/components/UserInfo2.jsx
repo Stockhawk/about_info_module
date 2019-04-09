@@ -13,7 +13,7 @@ const UserInfo2 = (props) => {
               <tr>
                 <td id="userAvNum">${stock.AV}</td>
               </tr> */}
-              <div id="userAv">Your Average Cost</div>
+              <caption id="userAv">Your Average Cost</caption>
               <div id="userAvNum">
               $
                 {stock.AV}
