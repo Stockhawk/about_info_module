@@ -119,13 +119,13 @@ form {
 
 #aboutMain {
   font-size: 26px;
+
 }
 
 #aboutMin {
   font-size: 13px;
-  position: absolute;
-  right: 405px;
-  bottom: 325px;
+  /* right: 405px;
+  bottom: 325px; */
   color: #21ce99;
 }
 
@@ -136,7 +136,12 @@ form {
 .aboutMain {
   width: 678px;
   height: 47px;
-  border-bottom: 1px solid rgb(177, 177, 177)
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-end;
+  border-bottom: 1px solid rgb(177, 177, 177);
+  padding-bottom: 16px;
 }
 
 #aboutCEO {

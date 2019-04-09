@@ -30,8 +30,8 @@ class About extends React.Component {
           return (
             <div key={stock.symbol}>
               <div className="aboutMain">
-                <span id="aboutMain">About</span>
-                <span id="aboutMin" onClick={this.onShowMoreClick}>{this.state.showClicked ? 'Show Less' : 'Show More'}</span>
+                <div id="aboutMain">About</div>
+                <div id="aboutMin" onClick={this.onShowMoreClick}>{this.state.showClicked ? 'Show Less' : 'Show More'}</div>
               </div>
               <div>
                 <section>
