@@ -1,5 +1,10 @@
+@font-face {
+  font-family: "DINProRegular";
+  src: url("/fonts/DINProRegular.otf") format("opentype");
+}
+
 body {
-  font-family: 'PT Sans', Verdana, Geneva, sans-serif;
+  font-family: "DINProRegular";
 }
 
 form { 
@@ -226,7 +231,7 @@ form {
   border-color: transparent transparent transparent #21ce99;
 } */
 
-#app {
+#informationModule {
   margin: 350px;
   margin-top: 50px;
 }
