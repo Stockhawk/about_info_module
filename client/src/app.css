@@ -204,12 +204,13 @@ form {
   box-sizing: border-box;
   border: thin solid #21ce99;
   background-color: #e6f9f3;
-  max-width: 170px;
+  max-width: 166px;
   max-height: 220px;
   border-radius: 14px;
   padding: 30px;
-  text-align: center;
+  text-align: start;
   position: static;
+  box-shadow: 3px 4px 4px grey
   /* bottom: 55px;
   left: 300px; */
 }
@@ -255,7 +256,6 @@ form {
   margin-left: 43.5%;
   border-left: 10px solid transparent;
   border-right: 10px solid transparent;
-  
   border-top: 10px solid #21ce99;
 }
 

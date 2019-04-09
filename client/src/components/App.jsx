@@ -23,10 +23,10 @@ class App extends React.Component {
   }
 
   getStockInfo() {
-    // const url = window.location.pathname;
-    // const splitUrl = url.split('/');
-    // const symbolId = splitUrl[splitUrl.length - 2];
-    fetch(`/stocks/AMD`, {
+    const url = window.location.pathname;
+    const splitUrl = url.split('/');
+    const symbolId = splitUrl[splitUrl.length - 2];
+    fetch(`/api/stocks/${symbolId}`, {
       method: 'GET',
     })
       .then(response => response.json())

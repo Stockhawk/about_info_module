@@ -12,9 +12,9 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.listen(port, () => console.log('APP IS LISTENING'));
 
-app.use('/stocks/', express.static(path.join(__dirname, '../client/dist')));
+app.use('/stocks/:symbol', express.static(path.join(__dirname, '../client/dist')));
 
-app.get('/stocks/:symbol', (req, res) => {
+app.get('/api/stocks/:symbol', (req, res) => {
   findStock(req.params).then(data => res.send(data));
 });
 
