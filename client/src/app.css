@@ -40,7 +40,7 @@ form {
 .userInfo1 {
   border-style: solid;
   border-width: thin;
-  border-color: rgb(177, 177, 177);
+  border-color: #f4f4f5;
   width: 333px;
   height: 217px;
   border-radius: 2px;
@@ -80,7 +80,7 @@ form {
 .userInfo2 {
   border-style: solid;
   border-width: thin;
-  border-color: rgb(177, 177, 177);
+  border-color: #f4f4f5;
   width: 333px;
   height: 217px;
   border-radius: 2px;
@@ -140,7 +140,7 @@ form {
   flex-direction: row;
   justify-content: space-between;
   align-items: flex-end;
-  border-bottom: 1px solid rgb(177, 177, 177);
+  border-bottom: 1px solid #f4f4f5;
   padding-bottom: 16px;
 }
 
@@ -163,7 +163,7 @@ form {
   font-size: 26px;
   width: 678px;
   height: 47px;
-  border-bottom: 1px solid rgb(177, 177, 177)
+  border-bottom: 1px solid #f4f4f5
 }
 
 .tags {
@@ -220,7 +220,7 @@ form {
   padding: 30px;
   text-align: start;
   position: static;
-  box-shadow: 3px 4px 4px grey
+  box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.01), 0 3px 24px rgba(48, 51, 51, 0.09);
   /* bottom: 55px;
   left: 300px; */
 }
@@ -237,8 +237,7 @@ form {
 } */
 
 #informationModule {
-  margin: 350px;
-  margin-top: 50px;
+  padding-left: 40px;
 }
 
 #warning {
