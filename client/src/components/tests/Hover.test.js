@@ -1,20 +1,22 @@
 import React from 'react';
 import Enzyme, { shallow, mount } from 'enzyme';
 
-import Collections from '../Collections';
+import Hover from '../Hover.jsx';
 
-describe('Collection', () => {
+
+describe('Hover', () => {
 
   const props = {
-    stockInfo: [
+    tags: [
       {
-        tags:[]
+        symbols: ['', '', '', '', ''],
+        price: ['', '', '', '', ''],
       },
     ],
   };
 
   test('render', () => {
-    const wrapper = shallow(<Collections {...props}/>);
+    const wrapper = shallow(<Hover {...props}/>);
     expect(wrapper.exists()).toBe(true);
   });
 });
