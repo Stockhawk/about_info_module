@@ -33,11 +33,11 @@ const Stock = mongoose.model('stock', stockSchema);
 const findStock = (params) => {
   return Stock.find(params, (err, data) => {
     if (err) {
-      console.log('ERRR', err)
+      console.log('ERRR', err);
     } else {
-      return data
-  }
-})}
+      return data;
+    }
+  })};
 
 module.exports = Stock;
 module.exports = findStock;
