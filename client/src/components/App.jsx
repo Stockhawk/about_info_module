@@ -26,6 +26,7 @@ class App extends React.Component {
     const url = window.location.pathname;
     const splitUrl = url.split('/');
     const symbolId = splitUrl[splitUrl.length - 2];
+    console.log('symbol', symbolId)
     fetch(`/api/stocks/${symbolId}`, {
       method: 'GET',
     })

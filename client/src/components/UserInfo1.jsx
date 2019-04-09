@@ -40,7 +40,7 @@ const UserInfo1 = (props) => {
                 <td id="userInfo1Left">Total Return</td>
                 <td id="userInfo1Right">
                  $
-                  {(stock.equity - stock.cost).toFixed(2)}
+                  {((stock.equity - stock.cost).toLocaleString())}
                   &nbsp;(
                   {(((stock.equity - stock.cost).toFixed(2) / stock.cost) * 100).toFixed(2)}
                 %)
