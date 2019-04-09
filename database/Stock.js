@@ -30,17 +30,4 @@ const stockSchema = new mongoose.Schema({
 
 const Stock = mongoose.model('stock', stockSchema);
 
-const findStock = (params) => {
-  console.log('parma', params)
-  const upperCaseParams = params.symbol.toUpperCase()
-  return Stock.find({ symbol: upperCaseParams }, (err, data) => {
-    if (err) {
-      console.log('ERRR', err);
-    } else {
-      console.log('data', data)
-      return data;
-    }
-  })};
-
 module.exports = Stock;
-module.exports = findStock;

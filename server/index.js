@@ -1,8 +1,9 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
-const findStock = require('../database/Stock.js');
-const findTag = require('../database/Tag.js');
+// const findStock = require('../database/Stock.js');
+// const findTag = require('../database/Tag.js');
+const request = require('./request.js');
 
 const app = express();
 const port = 3003;
@@ -16,9 +17,9 @@ app.use('/', express.static(path.join(__dirname, '../client/dist')));
 app.use('/stocks/:symbol', express.static(path.join(__dirname, '../client/dist')));
 
 app.get('/api/stocks/:symbol', (req, res) => {
-  findStock(req.params).then(data => res.send(data));
+  request.findStock(req.params).then(data => res.send(data));
 });
 
 app.get('/stocks/tags/:tag', (req, res) => {
-  findTag(req.params).then(data => res.send(data));
+  request.findTag(req.params).then(data => res.send(data));
 });
