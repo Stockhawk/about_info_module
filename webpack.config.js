@@ -29,6 +29,22 @@ module.exports = {
         }],
       },
     ],
+    loaders: [
+      {
+        test: /\.html$/,
+        name: 'mandrillTemplates',
+        loader: 'raw!html-minify',
+      },
+    ],
+  },
+  'html-minify-loader': {
+    empty: true,
+    cdata: true,
+    comments: true,
+    dom: {
+      lowerCaseAttributeNames: false,
+    },
+
   },
   output: {
     filename: 'bundle.js',

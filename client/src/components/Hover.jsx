@@ -28,8 +28,7 @@ class Hover extends React.Component {
   render() {
     return (
       <div>
-        {console.log('hover props', this.props.tags)}
-          {this.state.hover ?
+        {this.state.hover ?
             <div>
               <div className="hover" onMouseLeave={this.onMouseLeave}>
                 <table>

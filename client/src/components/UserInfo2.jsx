@@ -7,12 +7,6 @@ const UserInfo2 = (props) => {
         return (
           <table className="userInfo2" key={stock.symbol}>
             <thead>
-              {/* <tr>
-                <td id="userAv">Your Average Cost</td>
-              </tr>
-              <tr>
-                <td id="userAvNum">${stock.AV}</td>
-              </tr> */}
               <caption id="userAv">Your Average Cost</caption>
               <div id="userAvNum">
               $
@@ -48,14 +42,3 @@ const UserInfo2 = (props) => {
 };
 
 export default UserInfo2;
-// <div>Your Average Cost</div>
-// <div>$13.44</div>
-// <div>
-//   <span>Shares</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>190</span>
-// </div>
-// <div>
-//   <span>Portfolio Diversity</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>43.59%</span>
-// </div>
-// <div>
-//   <span>Cash Held for Exercise</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>$0.00</span>
-// </div>

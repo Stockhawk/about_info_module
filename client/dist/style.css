@@ -169,6 +169,8 @@ form {
   color: #21ce99;
   padding: 7px;
   margin: 4px;
+  font-weight: 500;
+  letter-spacing: 0.25px;
 }
 
 .tags:hover {
