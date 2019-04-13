@@ -6,7 +6,7 @@ class Collections extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      hover: false,
+      hover: true,
       hoveredTag: [],
     };
     this.handleMouseOver = this.handleMouseOver.bind(this);
@@ -16,11 +16,9 @@ class Collections extends React.Component {
 
   onHoverGetValue(e) {
     const name = e.target.innerHTML;
-    // console.log('name', name);
 
     let tagHovered;
     this.props.tag.forEach((tag) => {
-      // console.log('tag', tag.tag)
       if (tag.tag === name) {
         console.log(tag)
         tagHovered = tag;
@@ -48,7 +46,6 @@ class Collections extends React.Component {
         <div id="collections">
           Collections
         </div>
-        {console.log('prop tags', this.props.tag)}
         <br></br>
         {this.props.stockInfo.map(stock => (
           <div key={stock.symbol}>

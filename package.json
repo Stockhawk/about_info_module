@@ -5,10 +5,9 @@
   "main": "server.js",
   "scripts": {
     "test": "jest --coverage || true",
-    "start": "nodemon server/index.js",
+    "start": "node server/index.js",
     "react-dev": "webpack -d --watch",
-    "db:setup": "node database/seed.js",
-    "db:setup2": "node database/seed2.js"
+    "db:setup": "node database/seed.js & node database/seed2.js"
   },
   "jest": {
     "snapshotSerializers": [
@@ -35,6 +34,7 @@
     "eslint-plugin-import": "^2.16.0",
     "eslint-plugin-jsx-a11y": "^6.2.1",
     "eslint-plugin-react": "^7.12.4",
+    "html-minify-loader": "^1.4.0",
     "jest": "^24.7.1",
     "style-loader": "^0.23.1",
     "webpack": "^4.29.6",
@@ -42,6 +42,7 @@
   },
   "dependencies": {
     "body-parser": "^1.18.3",
+    "compression": "^1.7.4",
     "css-loader": "^2.1.1",
     "eslint": "^5.15.3",
     "express": "^4.16.4",

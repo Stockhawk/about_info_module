@@ -26,12 +26,15 @@ const UserInfo1 = (props) => {
               <tr>
                 <td id="userInfo1Left">Today's Return</td>
                 <td id="userInfo1Right">
+                  <span className="totalReturn">
                +$
-                  {stock.TR.toLocaleString()}
+                    {stock.TR.toLocaleString()}
+                  </span>
+                  <span>
                   (
-                  {((stock.TR / stock.equity) * 100).toFixed(2)}
-                  %
-                  )
+                    {((stock.TR / stock.equity) * 100).toFixed(2)}
+                  %)
+                  </span>
                 </td>
               </tr>
             </tbody>
@@ -39,11 +42,16 @@ const UserInfo1 = (props) => {
               <tr>
                 <td id="userInfo1Left">Total Return</td>
                 <td id="userInfo1Right">
+                  {(stock.equity - stock.cost) > 0 ? '+' : '-'}
+                  <span className="totalReturn">
                  $
-                  {((stock.equity - stock.cost).toLocaleString())}
-                  &nbsp;(
-                  {(((stock.equity - stock.cost).toFixed(2) / stock.cost) * 100).toFixed(2)}
+                    {((stock.equity - stock.cost).toLocaleString())}
+                  </span>
+                  <span>
+                    (
+                    {(((stock.equity - stock.cost).toFixed(2) / stock.cost) * 100).toFixed(2)}
                 %)
+                  </span>
                 </td>
               </tr>
             </tbody>
@@ -51,18 +59,6 @@ const UserInfo1 = (props) => {
 
         );
       })}
-      {/* <div>
-        <span id="userInfo1Left">Cost</span>
-        <span id="userInfo1Right">5000</span>
-      </div>
-      <div>
-        <span id="userInfo1Left">Today's Return</span>
-        <span id="userInfo1Right">$-197.87</span>
-      </div>
-      <div>
-        <span id="userInfo1Left">Total Return</span>
-        <span id="userInfo1Right">$-900.19</span>
-      </div> */}
     </div>
   );
 };

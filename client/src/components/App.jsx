@@ -1,6 +1,4 @@
 import React from 'react';
-import { Router, Route, Swotch} from 'react-router';
-import CssModules from 'react-css-modules';
 import UserInfo1 from './UserInfo1.jsx';
 import UserInfo2 from './UserInfo2.jsx';
 import About from './About.jsx';
@@ -18,15 +16,12 @@ class App extends React.Component {
 
   componentDidMount() {
     this.getStockInfo();
-    // const tagsId = this.state.stockInfo.map((stock) => { return stock.tags; });
-    // console.log('tagsId', tagsId);
   }
 
   getStockInfo() {
     const url = window.location.pathname;
     const splitUrl = url.split('/');
     const symbolId = splitUrl[splitUrl.length - 2];
-    console.log('symbol', symbolId)
     fetch(`/api/quotes/${symbolId}`, {
       method: 'GET',
     })
