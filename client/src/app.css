@@ -94,7 +94,7 @@ form {
   width: 678px;
   max-height: 218px;
   grid-gap: 55px;
-  grid-row-gap: 25px;
+  grid-row-gap: 30px;
 }
 
 .grid-container-app {
