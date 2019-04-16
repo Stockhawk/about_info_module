@@ -7,12 +7,6 @@ const UserInfo1 = (props) => {
         return (
           <table className="userInfo1" key={stock.symbol}>
             <thead>
-              {/* <tr>
-                <td id="userEquity">Your Equity</td>
-              </tr>
-              <tr>
-                <td id="userEquityNum">${(stock.equity).toLocaleString()}</td>
-              </tr> */}
               <caption id="userEquity">Your Equity</caption>
               <div id="userEquityNum">${(stock.equity).toLocaleString()}</div>
             </thead>
@@ -45,7 +39,7 @@ const UserInfo1 = (props) => {
                   {(stock.equity - stock.cost) > 0 ? '+' : '-'}
                   <span className="totalReturn">
                  $
-                    {((stock.equity - stock.cost).toLocaleString())}
+                    {(stock.equity - stock.cost).toLocaleString()}
                   </span>
                   <span>
                     (
