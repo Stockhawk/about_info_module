@@ -1,13 +1,12 @@
 # Project Name
 
-> Project description
+> About/Info module for stock tracking item detail page
 
 ## Related Projects
 
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
+  - https://github.com/hrsf113-group-5/buy_sell_module
+  - https://github.com/hrsf113-group-5/chart_module
+  - https://github.com/hrsf113-group-5/ratings_history_module
 
 ## Table of Contents
 
@@ -17,14 +16,13 @@
 
 ## Usage
 
-> Some usage instructions
+> ### API Routes
 
 ## Requirements
 
 An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
 
 - Node 6.13.0
-- etc
 
 ## Development
 
