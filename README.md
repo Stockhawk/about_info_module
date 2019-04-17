@@ -22,13 +22,13 @@
 | --- | --- | --- |
 | /stocks/:symbol | GET | static resource directory |
 | /api/quotes/:symbol | GET | Queries database for quotes pertaining to given stock symbol |
-| /api/quotes/:symbol | POST |  |
-| /api/quotes/:symbol | PUT |  |
-| /api/quotes/:symbol | DELETE |  |
+| /api/quotes/ | POST | Create a new symbol entry with all data in the request body |
+| /api/quotes/:symbol | PUT | Update an existing symbol with the data in the request body |
+| /api/quotes/:symbol | DELETE | Delete a symbol and all data pertaining to that symbol from the server |
 | /stocks/tags/:tag | GET | Queries database for tags pertaining to given stock symbol |
-| /stocks/tags/:tag | POST |  |
-| /stocks/tags/:tag | PUT |  |
-| /stocks/tags/:tag | DELETE |  |
+| /stocks/tags/ | POST | Create a new tag entry with all data in the request body |
+| /stocks/tags/:tag | PUT | Update an existing tag with the data in the request body |
+| /stocks/tags/:tag | DELETE | Delete a tag and all data pertaining to that tag from the server |
 
 Route handling may be found in the [server/index.js file](../master/server/index.js)
 
