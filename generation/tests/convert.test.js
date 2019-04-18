@@ -28,12 +28,25 @@ describe('character base converter', () => {
   });
   
   test('should return the value expressed in characters within the array', () => {
-    const testNumber = 0;
-    expect(convertBaseCharacters(testNumber, alphabet)).toEqual(alphabet[0]);
+    let testNumber;
+
+    testNumber = 0;
+    expect(convertBaseCharacters(testNumber, alphabet)).toEqual(alphabet[testNumber]);
+    
+    testNumber = 5;
+    expect(convertBaseCharacters(testNumber, alphabet)).toEqual(alphabet[testNumber]);
+
+    testNumber = 10;
+    expect(convertBaseCharacters(testNumber, alphabet)).toEqual(alphabet[testNumber]);
+  });
+
+  test('should work for numbers equal to the length of the array', () => {
+    let testNumber = 26;
+    expect(convertBaseCharacters(testNumber, alphabet)).toEqual('BA');
   });
 
   test('should work for very large numbers', () => {
     const testNumber = 10000000;
-    expect(convertBaseCharacters(testNumber, alphabet)).toEqual('JFGVU');
+    expect(convertBaseCharacters(testNumber, alphabet)).toEqual('VWYXK');
   });
 });
