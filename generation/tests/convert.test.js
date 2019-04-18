@@ -16,16 +16,24 @@ describe('character base converter', () => {
     expect(convertBaseCharacters).not.toBe(undefined);
   });
 
-  test('should return the input value if the array is undefined', () => {
+  test('should return the input value if no array was passed', () => {
     const testNumber = 1234;
-    expect(convertBaseCharacters(testNumber)).toBe(testNumber);
+    expect(convertBaseCharacters(testNumber)).toEqual(testNumber);
   });
   
   test('should return the input value if the array has a length of zero', () => {
     const testArray = [];
     const testNumber = 1234;
-    expect(convertBaseCharacters(testNumber, testArray)).toBe(testNumber);
+    expect(convertBaseCharacters(testNumber, testArray)).toEqual(testNumber);
   });
   
-  xtest('', () => {});
+  test('should return the value expressed in characters within the array', () => {
+    const testNumber = 0;
+    expect(convertBaseCharacters(testNumber, alphabet)).toEqual(alphabet[0]);
+  });
+
+  test('should work for very large numbers', () => {
+    const testNumber = 10000000;
+    expect(convertBaseCharacters(testNumber, alphabet)).toEqual('JFGVU');
+  });
 });
