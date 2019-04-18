@@ -1,4 +1,12 @@
+# Dependencies
 node_modules
+
+# Compiled files and data
 bundle.js
+generation/data/*.json
+
+# Test results and coverage files
 coverage
+
+# Sensitive information
 InformationModule.pem
