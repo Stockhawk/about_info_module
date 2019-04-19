@@ -1,7 +1,7 @@
 const faker = require('faker');
 const convertBaseCharacters = require('./convert.js');
 
-const alphabet = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
+const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 
 const MC = [
   904.63, 880.76, 478.55, 461.61, 342.84, 341.20, 327.26, 262.27, 250.40, 240.32, 222.60,
