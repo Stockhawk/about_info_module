@@ -3,10 +3,10 @@
  * Holds script for writing raw data to a text file
  */
 
-function writeToFile(stream, data, tgt, idx = 0) {
+function writeToFile(stream, tgt, { data, header = '', footer = '', comma = false }, idx = 0) {
 
   if (idx === 0) {
-    stream.write('[\n');
+    stream.write(header);
   }
 
   if (typeof data !== 'function') {
@@ -18,14 +18,14 @@ function writeToFile(stream, data, tgt, idx = 0) {
 
   for (idx; idx < tgt && bool; idx++) {
     stream.write(data(idx));
-    bool = stream.write( idx === tgt - 1 ? '\n' : ',\n' );
+    bool = stream.write( idx === tgt - 1 || !comma ? '\n' : ',\n' );
   }
 
   if (idx < tgt) {
-    stream.once('drain', () => writeToFile(stream, data, tgt, idx));
+    stream.once('drain', () => writeToFile(stream, tgt, { data, header, footer, comma }, idx));
   } else {
     stream.on('finish', () => console.log('Done writing to file'));
-    stream.end(']\n');
+    stream.end(footer);
   }
 
 }
