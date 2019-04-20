@@ -72,4 +72,6 @@ const createStock = (number) => {
   });
 };
 
-module.exports = createStock;
+module.exports = {
+  create: createStock,
+};

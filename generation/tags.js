@@ -30,4 +30,7 @@ function createTag(currentCollection, allSymbols) {
 
 createTag.collectionLength = collections.length;
 
-module.exports = createTag;
+module.exports = {
+  create: createTag,
+  length: collections.length
+};
