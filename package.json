@@ -5,6 +5,7 @@
   "main": "server.js",
   "scripts": {
     "test": "jest --coverage || true",
+    "test:generation": "jest /generation --verbose",
     "start": "node server/index.js",
     "react-dev": "webpack -p --watch",
     "db:setup": "node database/seed.js & node database/seed2.js"
