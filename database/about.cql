@@ -1,7 +1,7 @@
 DROP KEYSPACE about;
 
 CREATE KEYSPACE IF NOT EXISTS about
-  WITH replication = { 'class': 'SimpleStrategy', 'replication_factor': 3 };
+  WITH replication = { 'class': 'SimpleStrategy', 'replication_factor': 1 };
 
 USE about;
 
