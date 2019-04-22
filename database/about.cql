@@ -31,7 +31,13 @@ CREATE TABLE IF NOT EXISTS stocks (
 );
 
 CREATE TABLE IF NOT EXISTS tags (
-  collections varchar PRIMARY KEY,
+  tag varchar PRIMARY KEY,
   symbols list<varchar>,
-  prices list<float>
+  prices list<varchar>
 );
+
+COPY stocks FROM '../generation/data/stocks-0.csv'
+  WITH DELIMITER='|' AND HEADER=TRUE;
+
+COPY tags FROM '../generation/data/tags.csv'
+  WITH DELIMITER='|' AND HEADER=TRUE;
