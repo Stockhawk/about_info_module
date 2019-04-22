@@ -8,7 +8,7 @@ const collections = [
   'Semiconductors', 'Pharmaceutical', 'Retail', 'Automotive', 'REIT', 'Banking', 'Food', 'Materials', 'Aerospace',
 ];
 
-function createTag(currentCollection, allSymbols) {
+function generateTag(currentCollection, allSymbols) {
   const symbolsArr = [];
   const pricesArr = [];
 
@@ -21,16 +21,43 @@ function createTag(currentCollection, allSymbols) {
     pricesArr.push(randomPrice);
   }
 
-  return JSON.stringify({
-    tag: collections[currentCollection],
-    symbols: symbolsArr,
-    price: pricesArr,
-  });
+  return {
+    symbolsArr,
+    pricesArr,
+    collections: collections[currentCollection],
+  };
 }
 
-createTag.collectionLength = collections.length;
+function createTagCSV(currentCollection, allSymbols) {
+  const {
+    collections,
+    symbolsArr,
+    pricesArr,
+  } = generateTag(currentCollection, allSymbols);
+
+  const csvString =
+    `${collections[currentCollection]},` +
+    `[${symbolsArr}],` +
+    `[${pricesArr}]`;
+
+  return csvString;
+}
+
+function createTagJSON(currentCollection, allSymbols) {
+  const tagObject = generateTag(currentCollection, allSymbols);
+  const jsonString = JSON.stringify(tagObject);
+  return jsonString;
+}
 
 module.exports = {
-  create: createTag,
-  length: collections.length
+  length: collections.length,
+  csv: {
+    data: createTagCSV,
+    header: 'tag,symbols,price\n',
+  },
+  json: {
+    data: createTagJSON,
+    header: '[\n',
+    footer: ']',
+  },
 };

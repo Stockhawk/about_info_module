@@ -44,9 +44,37 @@ const createCollection = (collections) => {
   return tags;
 };
 
-const createStock = (number) => {
+const createStockCSV = (number) => {
   const todayHigh = faker.finance.amount(50, 300, 2);
-  return JSON.stringify({
+  const csvString =
+    `${convertBaseCharacters(number, alphabet)},` +
+    `${faker.finance.amount(5000, 20000, 2)},` +
+    `${faker.finance.amount(2000, 10000, 2)},` +
+    `${faker.random.number(300)},` +
+    `${faker.finance.amount(100, 2000, 2)},` +
+    `${faker.finance.amount(0, 100, 2)},` +
+    `"${faker.name.findName()}",` +
+    `${faker.random.number({ min: 300, max: 20000 })},` +
+    `"${faker.address.city()}",` +
+    `"${faker.address.state()}",` +
+    `${faker.random.number({ min: 1880, max: 2010 })},` +
+    `${MC[Math.floor(Math.random() * MC.length)]},` +
+    `${faker.finance.amount(10, 90, 2)},` +
+    `${AV[Math.floor(Math.random() * AV.length)]},` +
+    `${JSON.stringify(faker.lorem.paragraphs(3))},` +
+    `${todayHigh},` +
+    `${(parseInt(todayHigh) - 3.86)},` +
+    `${(parseInt(todayHigh) - 1.39)},` +
+    `${faker.finance.amount(1, 40, 2)},` +
+    `${(parseInt(todayHigh) + 34.68)},` +
+    `${(parseInt(todayHigh) - 28.03)},` +
+    `[${createCollection(categories)}]`;
+  return csvString;
+};
+
+const createStockJSON = (number) => {
+  const todayHigh = faker.finance.amount(50, 300, 2);
+  const jsonString = JSON.stringify({
     symbol: convertBaseCharacters(number, alphabet),
     equity: faker.finance.amount(5000, 20000, 2),
     cost: faker.finance.amount(2000, 10000, 2),
@@ -61,7 +89,7 @@ const createStock = (number) => {
     MC: MC[Math.floor(Math.random() * MC.length)],
     PER: faker.finance.amount(10, 90, 2),
     AV: AV[Math.floor(Math.random() * AV.length)],
-    description: faker.lorem.paragraphs(3),
+    description: JSON.stringify(faker.lorem.paragraphs(3)),
     high: todayHigh,
     low: (parseInt(todayHigh) - 3.86),
     open: (parseInt(todayHigh) - 1.39),
@@ -70,8 +98,17 @@ const createStock = (number) => {
     yearLow: (parseInt(todayHigh) - 28.03),
     tags: createCollection(categories),
   });
-};
+  return jsonString;
+}
 
 module.exports = {
-  create: createStock,
+  csv: {
+    data: createStockCSV,
+    header: 'symbol,equity,cost,shares,TR,PD,CEO,employees,HQc,HQs,founded,MC,PER,AV,description,high,low,open,volume,yearHigh,yearLow,tags\n',
+  },
+  json:{
+    data: createStockJSON,
+    header: '[\n',
+    footer: ']',
+  },
 };
