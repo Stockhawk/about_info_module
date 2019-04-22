@@ -22,26 +22,23 @@ function generateTag(currentCollection, allSymbols) {
   }
 
   return {
+    tag: collections[currentCollection],
     symbolsArr,
     pricesArr,
-    collections: collections[currentCollection],
   };
 }
 
-function createTagCSV(currentCollection, allSymbols) {
-  const {
-    collections,
-    symbolsArr,
-    pricesArr,
-  } = generateTag(currentCollection, allSymbols);
-
-  const csvString =
-    `${collections[currentCollection]},` +
-    `[${symbolsArr}],` +
-    `[${pricesArr}]`;
-
+const createTagCSV = (number, symbols, delimiter = ',', space = true) => {
+  const tagObject = generateTag(number, symbols);
+  const keys = Object.keys(tagObject);
+  let csvString = '';
+  keys.forEach((key, index) => {
+    csvString += tagObject[key].constructor === Array ? `[${tagObject[key]}]` : tagObject[key];
+    csvString += index >= keys.length - 1 ? '' : delimiter;
+    csvString += index >= keys.length - 1 || !space ? '' : ' ';
+  });
   return csvString;
-}
+};
 
 function createTagJSON(currentCollection, allSymbols) {
   const tagObject = generateTag(currentCollection, allSymbols);
@@ -53,7 +50,7 @@ module.exports = {
   length: collections.length,
   csv: {
     data: createTagCSV,
-    header: 'tag,symbols,price\n',
+    header: 'tag|symbols|price\n',
   },
   json: {
     data: createTagJSON,
