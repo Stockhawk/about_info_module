@@ -33,9 +33,7 @@ function writeToFile(stream, {
   if (i < target) {
     stream.once('drain', () => writeToFile(stream, arguments[1], i));
   } else {
-    stream.on('finish', () => {
-      filename ? console.timeEnd(filename) : filename;
-    });
+    stream.on('finish', () => filename ? console.timeEnd(filename) : filename);
     stream.end(footer);
   }
 

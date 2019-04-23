@@ -5,31 +5,30 @@ const writeToFile = require('./writer.js');
 const stock = require('./stock.js');
 const tag = require('./tags.js');
 
-let stockStream;
 let stockFileName;
-const tagStream = fs.createWriteStream(path.join(__dirname, '/data/tags.json'));
+let stockStream;
+const tagFileName = 'tags.csv';
+const tagStream = fs.createWriteStream(path.join(__dirname, '/data/', tagFileName));
 
-const DOCUMENTS = Math.pow(10, 1);
+const DOCUMENTS = Math.pow(10, 6);
 
 for (let i = 0; i < 10; i++) {
-  stockFileName = `stocks-${i}.json`
+  stockFileName = `stocks-${i}.csv`
   stockStream = fs.createWriteStream(path.join(__dirname, '/data/', stockFileName));
   writeToFile(stockStream, {
-    data: stock.json.data,
+    data: (idx) => stock.csv.data(idx, '|', false),
     filename: stockFileName,
     start: DOCUMENTS * i,
     target: DOCUMENTS * (i + 1),
-    header: stock.json.header,
-    footer: stock.json.footer,
-    comma: true,
+    header: stock.csv.header,
+    comma: false,
   });
 }
 
 writeToFile(tagStream, {
-  data: ((idx) => tag.json.data(idx, DOCUMENTS)),
-  filename: 'tags.json',
+  data: (idx) => tag.csv.data(idx, DOCUMENTS, '|', false),
+  filename: tagFileName,
   target: tag.length,
-  header: tag.json.header,
-  footer: tag.json.footer,
-  comma: true,
+  header: tag.csv.header,
+  comma: false,
 });
