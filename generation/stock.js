@@ -73,12 +73,13 @@ const generateStock = (number) => {
   return stockObject;
 }
 
-const createStockCSV = (number, delimiter = ',', space = true) => {
+const createStockCSV = (number, { delimiter = ',', space = true, brackets = '[]' }) => {
   const stockObject = generateStock(number);
   const keys = Object.keys(stockObject);
   let csvString = '';
   keys.forEach((key, index) => {
-    csvString += stockObject[key].constructor === Array ? `[${stockObject[key]}]` : stockObject[key];
+    csvString += Array.isArray(stockObject[key]) ? `${brackets[0]}${stockObject[key]}${brackets[1]}`
+              : stockObject[key];
     csvString += index >= keys.length - 1 ? '' : delimiter;
     csvString += (index >= keys.length - 1) || !space ? '' : ' ';
   })
