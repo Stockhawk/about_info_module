@@ -16,7 +16,7 @@ for (let i = 0; i < 10; i++) {
   stockFileName = `stocks-${i}.csv`
   stockStream = fs.createWriteStream(path.join(__dirname, '/data/', stockFileName));
   writeToFile(stockStream, {
-    data: (idx) => stock.csv.data(idx, '|', false),
+    data: (idx) => stock.csv.data(idx, { delimiter: '|', space: false }),
     filename: stockFileName,
     start: DOCUMENTS * i,
     target: DOCUMENTS * (i + 1),
@@ -26,7 +26,7 @@ for (let i = 0; i < 10; i++) {
 }
 
 writeToFile(tagStream, {
-  data: (idx) => tag.csv.data(idx, DOCUMENTS, '|', false),
+  data: (idx) => tag.csv.data(idx, DOCUMENTS, { delimiter: '|', space: false }),
   filename: tagFileName,
   target: tag.length,
   header: tag.csv.header,

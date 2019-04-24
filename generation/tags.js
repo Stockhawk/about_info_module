@@ -28,12 +28,13 @@ function generateTag(currentCollection, allSymbols) {
   };
 }
 
-const createTagCSV = (number, symbols, delimiter = ',', space = true) => {
+const createTagCSV = (number, symbols, { delimiter = ',', space = true, brackets = '[]'}) => {
   const tagObject = generateTag(number, symbols);
   const keys = Object.keys(tagObject);
   let csvString = '';
   keys.forEach((key, index) => {
-    csvString += tagObject[key].constructor === Array ? `[${tagObject[key]}]` : tagObject[key];
+    csvString += Array.isArray(tagObject[key]) ? `${brackets[0]}${tagObject[key]}${brackets[1]}`
+              : tagObject[key];
     csvString += index >= keys.length - 1 ? '' : delimiter;
     csvString += index >= keys.length - 1 || !space ? '' : ' ';
   });
