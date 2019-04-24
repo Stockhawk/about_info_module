@@ -39,7 +39,6 @@ CREATE TABLE IF NOT EXISTS tags (
 COPY tags FROM '../generation/data/tags.csv'
   WITH DELIMITER='|' AND HEADER=TRUE;
 
-
 COPY stocks FROM '../generation/data/stocks-0.csv'
   WITH DELIMITER='|' AND HEADER=TRUE;
 
