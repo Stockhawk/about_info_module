@@ -1,11 +1,14 @@
 /**
- * convert.js
- * Exports a function that converts a base 10 number to a number
- * expressed by the characters in the input character set where the
- * base is the length of the character set
+ * convertBaseCharacter
+ * @param {Number} target Any number in base 10
+ * @param {String, Array} characterSet A string consisting of characters.
+ * The length of the character set determines the base of the output.
+ * @param {Number} padTo Any number, representing the place the output
+ * will be padded to with the zeroth character
+ * @returns {String} A string expressing the number with the given character set
  */
 
-module.exports = function(target, characterSet = []) {
+module.exports = function(target, characterSet = [], padTo = 0) {
   if (characterSet.length === 0) {
     return target;
   }
@@ -22,6 +25,10 @@ module.exports = function(target, characterSet = []) {
   }
 
   result = characterSet[divisor] + result;
+
+  while (result.length < padTo) {
+    result = characterSet[0] + result;
+  }
 
   return result;
 };
