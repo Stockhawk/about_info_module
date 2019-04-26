@@ -46,8 +46,11 @@ const createCollection = (collections) => {
 
 const generateStock = (number) => {
   const todayHigh = faker.finance.amount(50, 300, 2);
+  const ticker = convertBaseCharacters(number, alphabet, 5);
   const stockObject = {
-    symbol: convertBaseCharacters(number, alphabet),
+    prefix1: ticker[0],
+    prefix2: ticker[1],
+    suffix: ticker.slice(2),
     AV: AV[Math.floor(Math.random() * AV.length)],
     CEO: faker.name.findName(),
     cost: faker.finance.amount(2000, 10000, 2),
@@ -64,6 +67,7 @@ const generateStock = (number) => {
     PD: faker.finance.amount(0, 100, 2),
     PER: faker.finance.amount(10, 90, 2),
     shares: faker.random.number(300),
+    symbol: ticker,
     tags: createCollection(categories),
     TR: faker.finance.amount(100, 2000, 2),
     volume: faker.finance.amount(1, 40, 2),
@@ -95,7 +99,7 @@ const createStockJSON = (number) => {
 module.exports = {
   csv: {
     data: createStockCSV,
-    header: 'symbol|av|ceo|cost|description|employees|equity|founded|high|hqc|hqs|low|mc|open|pd|per|shares|tags|tr|volume|yearhigh|yearlow\n',
+    header: 'prefix1|prefix2|suffix|symbol|av|ceo|cost|description|employees|equity|founded|high|hqc|hqs|low|mc|open|pd|per|shares|tags|tr|volume|yearhigh|yearlow\n',
   },
   json:{
     data: createStockJSON,
