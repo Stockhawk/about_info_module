@@ -12,7 +12,10 @@ module.exports.quotes = {
     
     database.execute(query, keys, { prepare: true })
     .then(results => res.send(results.rows))
-    .catch(error => res.status(500).end())
+    .catch(error => {
+      console.error(error);
+      res.status(500).end();
+    });
   },
   post: (req, res) => {},
   put: (req, res) => {},
@@ -21,8 +24,18 @@ module.exports.quotes = {
 
 module.exports.tags = {
   get: (req, res) => {
-    const symbol = req.params.symbol;
-    let query = ''
+    let tags = req.params.tags.split(',');
+    let query = '';
+
+    query += 'SELECT * FROM tags WHERE ';
+    query += 'tag IN (?, ?, ?, ?, ?, ?, ?)';
+
+    database.execute(query, tags, { prepare: true })
+    .then(results => res.send(results.rows))
+    .catch(error => {
+      console.error(error);
+      res.status(500).end();
+    });
   },
   post: (req, res) => {},
   put: (req, res) => {},
