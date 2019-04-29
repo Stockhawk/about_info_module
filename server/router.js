@@ -9,9 +9,9 @@ router.post('/quotes/', controllers.quotes.post);
 router.put('/quotes/:symbol', controllers.quotes.put);
 router.delete('/quotes/:symbol', controllers.quotes.delete);
 
-router.get('/tags/:symbol', controllers.tags.get);
+router.get('/tags/:tags', controllers.tags.get);
 router.post('/tags/', controllers.tags.post);
-router.put('/tags/:symbol', controllers.tags.put);
-router.delete('/tags/:symbol', controllers.tags.delete);
+router.put('/tags/:tags', controllers.tags.put);
+router.delete('/tags/:tags', controllers.tags.delete);
 
 module.exports = router;
