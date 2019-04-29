@@ -4,6 +4,8 @@ node_modules
 # Compiled files and data
 bundle.js
 generation/data/*.csv
+client/dist/*.*.br
+client/dist/*.*.gz
 
 # Test results and coverage files
 coverage
