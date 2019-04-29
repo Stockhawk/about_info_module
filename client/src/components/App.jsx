@@ -26,7 +26,7 @@ class App extends React.Component {
     fetch(`/api/quotes/${symbolId}`, { method: 'GET' })
       .then(response => response.json())
       .then(parsedJSON => this.setState({ stockInfo: parsedJSON }))
-      .then(() => fetch(`/api/tags/${parsedJSON[0].tags}`, { method: 'GET' }))
+      .then(() => fetch(`/api/tags/${this.state.stockInfo[0].tags}`, { method: 'GET' }))
       .then(response => response.json())
       .then(parsedJSON2 => this.setState({ tags: parsedJSON2 }))
       .catch(error => console.error(error));
