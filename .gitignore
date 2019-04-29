@@ -3,8 +3,7 @@ node_modules
 
 # Compiled files and data
 bundle.js
-generation/data/*.*
-generation/data/psql/*.*
+generation/data/*.csv
 
 # Test results and coverage files
 coverage
