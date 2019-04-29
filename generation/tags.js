@@ -23,8 +23,8 @@ function generateTag(currentCollection, allSymbols) {
 
   return {
     tag: collections[currentCollection],
-    symbolsArr,
     pricesArr,
+    symbolsArr,
   };
 }
 
