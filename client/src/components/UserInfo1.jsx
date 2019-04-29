@@ -22,11 +22,11 @@ const UserInfo1 = (props) => {
                 <td id="userInfo1Right">
                   <span className="totalReturn">
                +$
-                    {stock.TR.toLocaleString()}
+                    {stock.tr.toLocaleString()}
                   </span>
                   <span>
                   (
-                    {((stock.TR / stock.equity) * 100).toFixed(2)}
+                    {((stock.tr / stock.equity) * 100).toFixed(2)}
                   %)
                   </span>
                 </td>
