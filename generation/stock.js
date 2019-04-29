@@ -50,7 +50,8 @@ const generateStock = (number) => {
   const stockObject = {
     prefix1: ticker[0],
     prefix2: ticker[1],
-    suffix: ticker.slice(2),
+    prefix3: ticker[2],
+    suffix: ticker.slice(3),
     AV: AV[Math.floor(Math.random() * AV.length)],
     CEO: faker.name.findName(),
     cost: faker.finance.amount(2000, 10000, 2),

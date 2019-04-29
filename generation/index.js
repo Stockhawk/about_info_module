@@ -8,13 +8,13 @@ const tag = require('./tags.js');
 let stockFileName;
 let stockStream;
 const tagFileName = 'tags.csv';
-const tagStream = fs.createWriteStream(path.join(__dirname, '/data/temp/', tagFileName));
+const tagStream = fs.createWriteStream(path.join(__dirname, '/data/', tagFileName));
 
 const DOCUMENTS = Math.pow(10, 6);
 
 for (let i = 0; i < 10; i++) {
   stockFileName = `stocks-${i}.csv`
-  stockStream = fs.createWriteStream(path.join(__dirname, '/data/temp/', stockFileName));
+  stockStream = fs.createWriteStream(path.join(__dirname, '/data/', stockFileName));
   writeToFile(stockStream, {
     data: (idx) => stock.csv.data(idx, { delimiter: '|', space: false }),
     filename: stockFileName,
