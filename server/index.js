@@ -8,7 +8,7 @@ const router = require('./router.js');
 const compression = require('compression');
 
 const app = express();
-const port = 3003;
+const port = 80;
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
