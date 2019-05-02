@@ -10,7 +10,9 @@ client/dist/*.*.gz
 # Test results and coverage files
 coverage
 newrelic_agent.log
+nohup.out
 
 # Sensitive information
 InformationModule.pem
 newrelic.js
+*.txt
