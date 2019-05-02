@@ -124,7 +124,8 @@ module.exports.tags = {
     .catch(error => {
       console.error(error);
       res.status(500).end();
-    });},
+    });
+  },
 
   delete: (req, res) => {
     const tag = req.params.tags;
