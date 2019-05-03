@@ -7,6 +7,9 @@ generation/data/*.csv
 client/dist/*.*.br
 client/dist/*.*.gz
 
+# WIP Scripts
+generation/params.js
+
 # Test results and coverage files
 coverage
 newrelic_agent.log
