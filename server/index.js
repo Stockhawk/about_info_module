@@ -3,9 +3,9 @@ require('newrelic');
 const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
-const router = require('./router.js');
-
 const compression = require('compression');
+
+const router = require('./router.js');
 
 const app = express();
 const port = 3000;
