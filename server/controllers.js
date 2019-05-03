@@ -1,17 +1,12 @@
-const database = require('../database/connection.js');
+const stocks = require('./stocks.js');
+const tags = require('./tags.js');
 
 module.exports.quotes = {
 
   get: (req, res) => {
     const symbol = req.params.symbol;
-    const keys = [ symbol[0], symbol[1], symbol[2], symbol.slice(3) ];
-    let query = '';
-
-    query += 'SELECT * FROM stocks WHERE ';
-    query += 'prefix1 = ? AND prefix2 = ? ';
-    query += 'AND prefix3 = ? AND suffix = ?';
     
-    database.execute(query, keys, { prepare: true })
+    stocks.find(symbol)
     .then(results => res.send(results.rows))
     .catch(error => {
       console.error(error);
@@ -20,10 +15,7 @@ module.exports.quotes = {
   },
 
   post: (req, res) => {
-    const rowString = JSON.stringify(req.body);
-    const query = 'INSERT INTO stocks JSON ?'
-
-    database.execute(query, [ rowString ])
+    stocks.insert(req.body)
     .then(() => res.status(201).end())
     .catch(error => {
       console.error(error);
@@ -32,23 +24,7 @@ module.exports.quotes = {
   },
 
   put: (req, res) => {
-    const update = req.body;
-    const fields = Object.keys(update);
-    const symbol = req.params.symbol;
-    const keys = [ symbol[0], symbol[1], symbol[2], symbol.slice(3) ];
-    let query = '';
-
-    query += 'UPDATE stocks ';
-
-    for (let i = 0; i < fields.length; i++) {
-      query += `SET ${fields[i]} = ${update[fields[i]]}`;
-      query += i === fields.length - 1 ? ' ' : ', ';
-    }
-
-    query += 'WHERE prefix1 = ? AND prefix2 = ? ';
-    query += 'AND prefix3 = ? AND suffix = ?';
-    
-    database.execute(query, keys)
+    stocks.update(req.params.symbol, req.body)
     .then(() => res.status(202).end())
     .catch(error => {
       console.error(error);
@@ -57,15 +33,7 @@ module.exports.quotes = {
   },
 
   delete: (req, res) => {
-    const symbol = req.params.symbol;
-    const keys = [ symbol[0], symbol[1], symbol[2], symbol.slice(3) ];
-    let query = '';
-
-    query += 'DELETE * FROM stocks WHERE ';
-    query += 'prefix1 = ? AND prefix2 = ? ';
-    query += 'AND prefix3 = ? AND suffix = ?';
-    
-    database.execute(query, keys)
+    stocks.delete(req.params.symbol)
     .then(() => res.status(202).end())
     .catch(error => {
       console.error(error);
@@ -78,13 +46,7 @@ module.exports.quotes = {
 module.exports.tags = {
 
   get: (req, res) => {
-    let tags = req.params.tags.split(',');
-    let query = '';
-
-    query += 'SELECT * FROM tags WHERE ';
-    query += 'tag IN (?, ?, ?, ?, ?, ?, ?)';
-
-    database.execute(query, tags, { prepare: true })
+    tags.find(req.params.tags)
     .then(results => res.send(results.rows))
     .catch(error => {
       console.error(error);
@@ -93,10 +55,7 @@ module.exports.tags = {
   },
 
   post: (req, res) => {
-    const rowString = JSON.stringify(req.body);
-    const query = 'INSERT INTO tags JSON ?'
-
-    database.execute(query, [ rowString ])
+    tags.insert(req.body)
     .then(() => res.status(201).end())
     .catch(error => {
       console.error(error);
@@ -105,21 +64,7 @@ module.exports.tags = {
   },
 
   put: (req, res) => {
-    const update = req.body;
-    const fields = Object.keys(update);
-    const tag = req.params.tags;
-    let query = '';
-
-    query += 'UPDATE tags ';
-
-    for (let i = 0; i < fields.length; i++) {
-      query += `SET ${fields[i]} = ${update[fields[i]]}`;
-      query += i === fields.length - 1 ? ' ' : ', ';
-    }
-
-    query += 'WHERE tag = ?';
-    
-    database.execute(query, [ tag ])
+    tags.update(req.params.tags, req.body)
     .then(() => res.status(202).end())
     .catch(error => {
       console.error(error);
@@ -128,13 +73,7 @@ module.exports.tags = {
   },
 
   delete: (req, res) => {
-    const tag = req.params.tags;
-    let query = '';
-
-    query += 'DELETE * FROM tags WHERE ';
-    query += 'tag = ?';
-    
-    database.execute(query, [ tag ])
+    tags.delete(req.params.tags)
     .then(() => res.status(202).end())
     .catch(error => {
       console.error(error);
