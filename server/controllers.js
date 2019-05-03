@@ -1,3 +1,6 @@
+const redis = require('redis');
+const cache = redis.createClient();
+
 const stocks = require('./stocks.js');
 const tags = require('./tags.js');
 
@@ -6,11 +9,23 @@ module.exports.quotes = {
   get: (req, res) => {
     const symbol = req.params.symbol;
     
-    stocks.find(symbol)
-    .then(results => res.send(results.rows))
-    .catch(error => {
-      console.error(error);
-      res.status(500).end();
+    cache.get(symbol, (error, reply) => {
+      if (error) {
+        console.error(error);
+        res.status(500).end();
+      } else if (reply) {
+        res.send(reply);
+      } else {
+        stocks.find(symbol)
+        .then(results => {
+          cache.set(symbol, JSON.stringify(results.rows));
+          res.send(results.rows);
+        })
+        .catch(error => {
+          console.error(error);
+          res.status(500).end();
+        });
+      }
     });
   },
 
@@ -46,12 +61,26 @@ module.exports.quotes = {
 module.exports.tags = {
 
   get: (req, res) => {
-    tags.find(req.params.tags)
-    .then(results => res.send(results.rows))
-    .catch(error => {
-      console.error(error);
-      res.status(500).end();
-    });
+    const tagString = req.params.tags;
+
+    cache.get(tagString, (error, reply) => {
+      if (error) {
+        console.error(error);
+        res.status(500).end();
+      } else if (reply) {
+        res.send(reply);
+      } else {
+        tags.find(req.params.tags)
+        .then(results => {
+          cache.set(tagString, JSON.stringify(results.rows));
+          res.send(results.rows);
+        })
+        .catch(error => {
+          console.error(error);
+          res.status(500).end();
+        });
+      }
+    });    
   },
 
   post: (req, res) => {
