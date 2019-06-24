@@ -11,7 +11,6 @@ class Hover extends React.Component {
   }
 
   onMouseLeave() {
-    console.log('first')
     this.setState({
       hover: !this.state.hover
     });
@@ -19,7 +18,6 @@ class Hover extends React.Component {
   }
 
   changeState() {
-    console.log('second')
     this.setState({
       hover: !this.state.hover
     });
@@ -41,23 +39,23 @@ class Hover extends React.Component {
                   </tr>
                   <tr id="hover-table">
                     <td>{this.props.tags.symbols[0]}</td>
-                    <td>${this.props.tags.price[0]}</td>
+                    <td>${this.props.tags.prices[0]}</td>
                   </tr>
                   <tr id="hover-table">
                     <td>{this.props.tags.symbols[1]}</td>
-                    <td>${this.props.tags.price[1]}</td>
+                    <td>${this.props.tags.prices[1]}</td>
                   </tr>
                   <tr id="hover-table">
                     <td>{this.props.tags.symbols[2]}</td>
-                    <td>${this.props.tags.price[2]}</td>
+                    <td>${this.props.tags.prices[2]}</td>
                   </tr>
                   <tr id="hover-table">
                     <td>{this.props.tags.symbols[3]}</td>
-                    <td>${this.props.tags.price[3]}</td>
+                    <td>${this.props.tags.prices[3]}</td>
                   </tr>
                   <tr id="hover-table">
                     <td>{this.props.tags.symbols[4]}</td>
-                    <td>${this.props.tags.price[4]}</td>
+                    <td>${this.props.tags.prices[4]}</td>
                   </tr>
                 </table>
                 <div id="warning">

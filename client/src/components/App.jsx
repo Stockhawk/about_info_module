@@ -22,24 +22,14 @@ class App extends React.Component {
     const url = window.location.pathname;
     const splitUrl = url.split('/');
     const symbolId = splitUrl[splitUrl.length - 2];
-    fetch(`/api/quotes/${symbolId}`, {
-      method: 'GET',
-    })
+
+    fetch(`/api/quotes/${symbolId}`, { method: 'GET' })
       .then(response => response.json())
-      .then((parsedJSON) => {
-        this.setState({
-          stockInfo: parsedJSON,
-        });
-        return fetch(`/stocks/tags/${parsedJSON[0].tags}`, {
-          method: 'GET',
-        })
-          .then(response => response.json())
-          .then((parsedJSON2) => {
-            this.setState({
-              tags: parsedJSON2
-            });
-          });
-      });
+      .then(parsedJSON => this.setState({ stockInfo: parsedJSON }))
+      .then(() => fetch(`/api/tags/${this.state.stockInfo[0].tags}`, { method: 'GET' }))
+      .then(response => response.json())
+      .then(parsedJSON2 => this.setState({ tags: parsedJSON2 }))
+      .catch(error => console.error(error));
   }
 
   render() {

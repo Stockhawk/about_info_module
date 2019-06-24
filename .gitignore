@@ -3,11 +3,19 @@ node_modules
 
 # Compiled files and data
 bundle.js
-generation/data/*.json
 generation/data/*.csv
+client/dist/*.*.br
+client/dist/*.*.gz
+
+# WIP Scripts
+generation/params.js
 
 # Test results and coverage files
 coverage
+newrelic_agent.log
+nohup.out
 
 # Sensitive information
 InformationModule.pem
+newrelic.js
+*.txt

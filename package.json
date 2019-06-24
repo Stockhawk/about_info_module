@@ -6,9 +6,9 @@
   "scripts": {
     "test": "jest --coverage || true",
     "test:generation": "jest /generation --verbose",
-    "start": "node server/index.js",
-    "react-dev": "webpack -p --watch",
-    "db:setup": "node database/seed.js & node database/seed2.js"
+    "server": "node server/index.js",
+    "react:pro": "webpack -p",
+    "react:dev": "webpack -d --watch"
   },
   "jest": {
     "snapshotSerializers": [
@@ -44,19 +44,21 @@
   },
   "dependencies": {
     "body-parser": "^1.18.3",
+    "cassandra-driver": "^4.1.0",
     "compression": "^1.7.4",
     "css-loader": "^2.1.1",
     "eslint": "^5.15.3",
     "express": "^4.16.4",
     "faker": "^4.1.0",
     "file-loader": "^3.0.1",
-    "mongoose": "^5.4.20",
+    "newrelic": "^5.7.0",
     "nodemon": "^1.18.10",
     "react": "^16.8.4",
     "react-css-modules": "^4.7.9",
     "react-dom": "^16.8.5",
     "react-router": "^5.0.0",
     "reactdom": "^2.0.0",
+    "redis": "^2.8.0",
     "semantic-ui-react": "^0.86.0",
     "style-loader": "^0.23.1"
   }

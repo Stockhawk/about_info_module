@@ -20,7 +20,6 @@ class Collections extends React.Component {
     let tagHovered;
     this.props.tag.forEach((tag) => {
       if (tag.tag === name) {
-        console.log(tag)
         tagHovered = tag;
         return;
       }

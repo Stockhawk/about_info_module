@@ -46,7 +46,7 @@ class About extends React.Component {
               <div className="grid-container">
                 <div className="grid-item">
                   <div id="aboutName">CEO</div>
-                  <div id="aboutCEO">{stock.CEO}</div>
+                  <div id="aboutCEO">{stock.ceo}</div>
                 </div>
                 <div className="grid-item">
                   <div id="aboutName">Employees</div>
@@ -54,7 +54,7 @@ class About extends React.Component {
                 </div>
                 <div className="grid-item">
                   <div id="aboutName">Headquarters</div>
-                  <div id="aboutItem">{stock.HQc}, {stock.HQs}</div>
+                  <div id="aboutItem">{stock.hqc}, {stock.hqs}</div>
                 </div>
                 <div className="grid-item">
                   <div id="aboutName">Founded</div>
@@ -62,11 +62,11 @@ class About extends React.Component {
                 </div>
                 <div className="grid-item">
                   <div id="aboutName">Market Cap</div>
-                  <div id="aboutItem">{stock.MC}B</div>
+                  <div id="aboutItem">{stock.mc}B</div>
                 </div>
                 <div className="grid-item">
                   <div id="aboutName">Price-Earning Ratio</div>
-                  <div id="aboutItem">{stock.PER}</div>
+                  <div id="aboutItem">{stock.per}</div>
                 </div>
                 <div className="grid-item">
                   <div id="aboutName">Dividend Yield</div>
@@ -74,7 +74,7 @@ class About extends React.Component {
                 </div>
                 <div className="grid-item">
                   <div id="aboutName">Average Volume</div>
-                  <div id="aboutItem">{stock.AV}M</div>
+                  <div id="aboutItem">{stock.av}M</div>
                 </div>
                 {this.state.showClicked ? (
                   <div className="grid-container">
@@ -96,11 +96,11 @@ class About extends React.Component {
                     </div>
                     <div className="grid-item">
                       <div id="aboutName">52 Week High</div>
-                      <div id="aboutItem">${stock.yearHigh}</div>
+                      <div id="aboutItem">${stock.yearhigh}</div>
                     </div>
                     <div className="grid-item">
                       <div id="aboutName">52 Week Low</div>
-                      <div id="aboutItem">${stock.yearLow}</div>
+                      <div id="aboutItem">${stock.yearlow}</div>
                     </div>
                   </div>
                 ) : null }
